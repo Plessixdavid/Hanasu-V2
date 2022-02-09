@@ -1,0 +1,188 @@
+body { 
+    font-family: "Arial Black", Arial, Verdana, sans-serif;
+    background: url("img/acceuil.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+section{
+  /* utilise la surface visibe du navigateur */
+  height: 90vh;
+  /* rend responsive l'affichage */
+  display: flex;
+  /* justifie le contenu au centre de l'écran en hauteur et largeur */
+  justify-content: center;
+  align-items: center;
+}
+
+span{
+  font-size:small;
+  color: black;
+}
+
+label{
+  color: black
+}
+li{
+  font-size: small;
+  color: black;
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+input{
+  /* permet de declarer chaque input dans une ligne apart */
+  display: block;
+  /* applique une marge */
+  margin: 10px auto;
+  /* defini la taille des champs maximal */
+  width: 300px;
+  /* donne une marge interne verticale et horizontale*/
+  padding: 6px 10px;
+  /* enleve la outline */
+  outline: none;
+  /* enleve la bordure */
+  border: none;
+  /* centre le fond et ignore les marges et bordures */
+  box-sizing: border-box;
+  /* permet d'arrondir les angle des inputs */
+  border-radius: 6px;
+}
+
+input[type="submit"]{
+  /* permet de changer la couleur du font de submit */
+  background-color: #8ab5d8;
+  /* permet de changer le style de la police de standart à bold */
+  font-weight: bold;
+  /* permet une reaction lorsque la souris passse dessus */
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  /* change la couleur du bouton submit par un dégradé partant du bas  */
+  background:linear-gradient(to bottom, #ef027d 5%, #ff5bb0 100%);
+
+}
+
+div{
+  /* rend responsive l'affichage */
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  color: #8ab5d8;
+  font-size: small;
+}
+
+input[type="checkbox"]{
+  width: auto;
+  margin: 20px;
+} */
+
+.container {
+/* permet un affichage responsive */
+display: flex;
+/* donne une taile specifique au container */
+/* permet un arrangement lors de la reduction de l'ecran en mode colonne */
+flex-direction: row;
+/* centre l'element */
+justify-content: center;
+align-items: center;
+/* permet un rangement en mode grille */
+flex-wrap: wrap;
+/* créer une marge pour la grille */
+gap: 25px;
+}
+
+form{
+/* donne une taille en largeur */
+max-width: 500px;
+/* colorie en transparence le fond du formulaire */
+background-color: rgba(242, 38, 104, 0.4);
+border-radius: 45px;
+/* donne une marge interne aux elements */
+padding: 60px;
+/* centre le fond et ignore les marges et bordures */
+box-sizing: border-box;
+justify-content: center;
+padding: 15px;
+}
+
+
+@media all and (max-width: 991px)
+{
+
+    .container 
+    {
+        /* permet un affichage responsive */
+        display: flex;
+        /* donne une taile specifique au container */
+        /* permet un arrangement lors de la reduction de l'ecran en mode colonne */
+        flex-direction: row;
+        /* centre l'element */
+        justify-content: center;
+        align-items: center;
+        /* permet un rangement en mode grille */
+        flex-wrap: wrap;
+        /* créer une marge pour la grille */
+        gap: 25px;
+        font: size 30px;
+      
+    }
+
+    /* img
+    {
+        /* contraint un taille maximal par rapport à la taille du container */
+        width: 150px;
+        max-height: 75px;
+        border-radius: 20px;
+    } */
+ 
+    label{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8ab5d8;
+      font-size: small;
+      width: 100%;
+      color: black;
+      
+      }
+    input{
+      display: block;
+      margin: 10px auto;
+      width: 100%;
+      outline: none;
+      border: none;
+      box-sizing: border-box;
+      border-radius: 6px;
+      height: 35px;
+    }
+
+    form{
+      /* colorie en transparence le fond du formulaire */
+      background-color: rgba(242, 38, 104, 0.4);
+      border-radius: 45px;
+      /* centre le fond et ignore les marges et bordures */
+      box-sizing: border-box;
+    
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+       
+    }
+
+    
+}

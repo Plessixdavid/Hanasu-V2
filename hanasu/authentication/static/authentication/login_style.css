@@ -1,0 +1,147 @@
+body { 
+    font-family: "Arial Black", Arial, Verdana, sans-serif;
+    background: url("img/acceuil.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+section{
+  /* utilise la surface visibe du navigateur */
+  width: 100vw;
+  height: 100vh;
+  /* rend responsive l'affichage */
+  display: flex;
+  /* justifie le contenu au centre de l'écran en hauteur et largeur */
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  /* permet un affichage responsive */
+  display: flex;
+  /* donne une taile specifique au container */
+  /* permet un arrangement lors de la reduction de l'ecran en mode colonne */
+  flex-direction: row;
+  /* centre l'element */
+  justify-content: center;
+  align-items: center;
+  /* permet un rangement en mode grille */
+  flex-wrap: wrap;
+  /* créer une marge pour la grille */
+  gap: 25px;
+  
+}
+p{
+  display: flex;
+  margin: 25px;
+  
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+form{
+  /* donne une taille en largeur */
+  max-width: 500px;
+  /* colorie en transparence le fond du formulaire */
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 45px;
+  /* donne une marge interne aux elements */
+  padding: 60px;
+  /* centre le fond et ignore les marges et bordures */
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 15px;
+}
+
+div{
+  /* rend responsive l'affichage */
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  color: #8ab5d8;
+  font-size: small;
+}
+label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8ab5d8;
+  font-size: medium;
+  width: 100%;
+  color: black;
+  
+}
+button{
+  display: block;
+  margin : auto;
+}
+input[type="checkbox"]{
+  width: auto;
+  margin: 20px;
+}
+
+@media all and (max-width: 991px)
+{
+
+    .container 
+    {
+        /* permet un affichage responsive */
+        display: flex;
+        /* donne une taile specifique au container */
+        /* permet un arrangement lors de la reduction de l'ecran en mode colonne */
+        flex-direction: row;
+        /* centre l'element */
+        justify-content: center;
+        align-items: center;
+        /* permet un rangement en mode grille */
+        flex-wrap: wrap;
+        /* créer une marge pour la grille */
+        gap: 25px;
+        font: size 30px;
+      
+    }
+
+    /* img
+    {
+        /* contraint un taille maximal par rapport à la taille du container */
+        width: 150px;
+        max-height: 75px;
+        border-radius: 20px;
+    } */
+ 
+    label 
+    {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        font-size: small;
+    }
+
+    form{
+      /* colorie en transparence le fond du formulaire */
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 45px;
+      /* centre le fond et ignore les marges et bordures */
+      box-sizing: border-box;
+    
+    }
+
+    p{
+      display: flex;
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+       
+    }
+
+    
+}

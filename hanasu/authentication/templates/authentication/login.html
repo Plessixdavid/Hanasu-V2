@@ -1,0 +1,21 @@
+{%extends 'authentication/_base.html'%}
+
+{% load static %}
+    {% block title %}Hanasu{% endblock title %}
+    {% block content %}
+    <section>
+        <div class="container">
+            {% comment %} affiche l'image {% endcomment %}
+            <img src="{% static 'authentication/img/logo.png' %}">
+            {% comment %} affiche les messages et le formulaire de connection {% endcomment %}
+            <p>{{message}}</p>
+            <form method="post">
+                {{form.as_p}}
+                {% csrf_token %}
+                <button type="submit">Se connecter</button>
+            </form>
+            {% comment %} ici un lien vers le formulaire d'inscription nommé signup {% endcomment %}
+            <p>Pas encore membre ? <a href="{% url 'signup' %}"> Inscrivez-vous maintenant !</a></p>
+        </div>
+    </section>
+    {% endblock content %}

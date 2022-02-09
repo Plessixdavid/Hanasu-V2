@@ -1,0 +1,24 @@
+{% extends 'mysite/_base.html' %}
+{% load static %}
+    {% block title %}Hanasu{% endblock title %}
+    {% block content %}
+
+    <section>
+        <div class="container">
+            <div class="child" id="child-1"><a href="{% url 'maneki_neko' %}" target="_blank"><img src="{% static "mysite/img/maneki.jpg"%}" alt="Maneki Neko Game"></a></div>
+            <div class="child" id="child-1"><a href="{% url 'lexique' %}" target="_blank"><img src="{% static "mysite/img/question.jpg"%}" alt="lexique"></a></div>
+            <div class="child" id="child-1"><a href="https://cours-de-japonais.com" target="_blank"><img src="{% static "mysite/img/sophie.png"%}" alt="cours de japonais"></a></div>
+            <div class="child" id="child-1"><a href="#" target="_blank"><img src="{% static "mysite/img/datura.jpg"%}" alt="Maneki Neko Game"></a></div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p>
+                Créer par David Plessix, Formation Dev Web et Web Mobile.
+                Projet N°3 soutenance 2022
+            </p>
+        </div>
+    </footer>
+    {% endblock content %}
+    

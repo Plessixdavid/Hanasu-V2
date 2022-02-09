@@ -1,0 +1,22 @@
+{% extends 'lexique/_base.html' %}
+{% load static %}
+    {% block content %}
+
+        <h2>Supprimer le mot du lexique</h2>
+          {% comment %}  attribut enctype obligatoire pour que le formulaire puisse gérer l’envoi de fichiers. {% endcomment %}
+    <section>  
+    <p>Etes-vous sûr de vouloir supprimer le groupe : {{ photo.romanji }} ?</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer">
+        </form>
+    </section>
+    <footer>
+        <section>
+            <p>
+                Créer par David Plessix, Formation Dev Web et Web Mobile.
+                Projet N°3 soutenance 2022
+            </p>
+        </section>
+    </footer>
+{% endblock content %}

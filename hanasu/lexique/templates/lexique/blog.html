@@ -1,0 +1,17 @@
+{% extends 'lexique/_base.html' %}
+{% block content %}
+
+<section>
+    {% for blog in blogs %}
+        <div class="container">
+            <img src="{{ blog.image.url }}">
+            <div>
+                <h2>{{ blog.title }}</h2>
+                <p>{{ blog.content }}</p>
+                <p>écrit par : {{ blog.author }}</p>
+
+            </div>
+        </div>
+    {% endfor %}
+</section>
+{% endblock content %}

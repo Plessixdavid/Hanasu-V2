@@ -1,0 +1,25 @@
+{% extends 'mysite/_base.html' %}
+{% load static %}
+    {% block title %}Maneki Neko Game{% endblock title %}
+    {% block content %}
+  
+    <div class="checking">
+        <label for="Check"><input type="checkbox" name="remenber" id="Check">Hiragana</label>
+        <label for="Check"><input type="checkbox" name="remenber" id="Check">katakana</label>
+    </div>
+    
+    <div class="container">
+        <div class="child" id="child-1"><a href="/hanasu_maneki_neko" target="/hanasu_maneki_neko">{{random_ideogramm.romanji }}</a></div>
+        <div class="child2" id="child-2"><img class="img2" src="{{image}}" alt="Maneki Neko Game"></div>
+        <div class="child" id="child-1"><a href="/hanasu_maneki_neko" target="/hanasu_maneki_neko">{{random_ideogramm2.romanji }}</a></div> 
+    </div>
+    
+    <section>
+        <p>{{random_documentary.description}}</p>
+    </section>
+    {% comment %} <ul>
+        {% for ideogramm in ideogramms%}
+        <li>{{ideogramm.romanji}}</li>
+        {% endfor %}
+    </ul> {% endcomment %}
+    {% endblock content %}

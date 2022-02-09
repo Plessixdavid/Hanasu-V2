@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static css %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <label for="toggle">☰</label>
+            <input type="checkbox" id="toggle">
+            <div class="main_pages">
+                <a href="{% url 'home' %}">Accueil</a>
+                <a href="{% url 'maneki_neko' %}">Maneki Neko</a>
+                <a href="{% url 'lexique' %}">Lexique</a>
+                <a href="{% url 'blog' %}">Blog</a>
+                <a href="#">Cours de japonais</a>
+                <a href="#">Contact</a>
+                <a href="{% url 'logout' %}">{{user.username}} / se déconnecter</a>
+    
+            </div>
+        </nav>
+    </header>
+    {% block content %}{% endblock content %}
+   
+</body>
+</html>

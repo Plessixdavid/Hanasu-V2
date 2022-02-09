@@ -1,0 +1,22 @@
+{% extends 'lexique/_base.html' %}
+{% load static %}
+{% block content %}
+
+        <h2>Mise à jour d'un mot du lexique</h2>
+        {% comment %}  attribut enctype obligatoire pour que le formulaire puisse gérer l’envoi de fichiers. {% endcomment %}
+    <section>  
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
+    <footer>
+        <section>
+            <p>
+                Créer par David Plessix, Formation Dev Web et Web Mobile.
+                Projet N°3 soutenance 2022
+            </p>
+        </section>
+    </footer>
+{% endblock content %}

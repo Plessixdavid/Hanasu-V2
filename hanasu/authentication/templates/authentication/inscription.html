@@ -1,0 +1,21 @@
+{% extends 'mysite/_base.html' %}
+{% load static %}
+    {% block title %}Hanasu Register{% endblock title %}
+    {% block content %}
+    <section>
+        <div class="container">
+            <conteneur>
+                <h2>Inscription</h2>
+                <img src="{% static 'mysite/img/logo.png' %}">
+            </conteneur>
+            {% if form.errors %}
+                {{ form.errors }}
+            {% endif %}
+            <form method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button type="submit" >S’inscrire</button>
+            </form>
+        </div>
+    </section>
+    {% endblock content %}

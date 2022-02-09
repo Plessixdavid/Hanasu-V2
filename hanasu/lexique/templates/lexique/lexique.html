@@ -1,0 +1,22 @@
+{% extends 'lexique/_base.html' %}
+{% block content %}
+
+    <h2>Lexique<a href="{% url 'lexique_upload' %}"> Ajouter</a></h2>
+    
+    <section>
+        {% for photo in photos %}
+            <div class="container">
+                <img src="{{ photo.image.url }}">
+                <div>
+                    <h3>Romanji:</h3>
+                    <p>{{ photo.romanji }}</p>
+                    <h3>description:</h3>
+                    <p>{{photo.description }}</p>
+                    <a href="{% url 'lexique_update' photo.id %}"> Modifier</a>
+                    <a href="{% url 'lexique_delete' photo.id %}">/ Supprimer</a>
+
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock content %}
