@@ -43,7 +43,9 @@ section{
   align-items: center;
   flex-wrap: wrap;
   gap: 25px;
-  margin-top:25px;
+  max-width: 75%;
+  text-align: center;
+  margin: auto;
 }
 
 form{
@@ -70,8 +72,6 @@ p > label{
   flex-wrap: wrap;
   /* créer une marge pour la grille */
   gap: 20px;
-  border-right:3px solid black;
-  padding-right: 30px;
 }
 
 .child {

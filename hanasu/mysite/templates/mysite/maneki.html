@@ -1,22 +1,39 @@
 {% extends 'mysite/_base.html' %}
 {% load static %}
     {% block title %}Maneki Neko Game{% endblock title %}
-    {% block content %}
-  
-    <div class="checking">
-        <label for="Check"><input type="checkbox" name="remenber" id="Check">Hiragana</label>
-        <label for="Check"><input type="checkbox" name="remenber" id="Check">katakana</label>
-    </div>
-    
-    <div class="container">
-        <div class="child" id="child-1"><a href="/hanasu_maneki_neko" target="/hanasu_maneki_neko">{{random_ideogramm.romanji }}</a></div>
-        <div class="child2" id="child-2"><img class="img2" src="{{image}}" alt="Maneki Neko Game"></div>
-        <div class="child" id="child-1"><a href="/hanasu_maneki_neko" target="/hanasu_maneki_neko">{{random_ideogramm2.romanji }}</a></div> 
+    {% block content %}   
+    <p>Score : {{scores.current_score}} / {{scores.total_questions}}</p>
+        <div class="container">
+        <div class="child" id="child-1">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="current" value="{{ideogramms.0.id}}">
+                <input type="hidden" name="correct" value="{{correct_ideogramm.id}}">
+
+                <button type="submit">{{ideogramms.0.romanji }}</button>
+            </form>
+        </div>
+
+        <div class="child2" id="child-2">
+            <img class="img2" src="{{correct_ideogramm.Img_link}}" alt="Maneki Neko Game">
+        </div>
+
+        <div class="child" id="child-1">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="current" value="{{ideogramms.1.id}}">
+                <input type="hidden" name="correct" value="{{correct_ideogramm.id}}">
+
+                <button type="submit">{{ideogramms.1.romanji }}</button>
+            </form>
+        </div> 
     </div>
     
     <section>
         <p>{{random_documentary.description}}</p>
     </section>
+
+    <section>{{text}}</section>
     {% comment %} <ul>
         {% for ideogramm in ideogramms%}
         <li>{{ideogramm.romanji}}</li>

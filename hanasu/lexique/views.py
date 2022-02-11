@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from . import models
 from . import forms
 
+
 # Create your views here.
 @login_required
 def blog(request):
@@ -17,7 +18,6 @@ def lexique(request):
     photos = models.Lexique.objects.all()
     css = "lexique/lexique_style.css"
     return render(request, "lexique/lexique.html", context={'photos': photos, "css":css})
-
 
 @login_required
 def lexique_upload(request):

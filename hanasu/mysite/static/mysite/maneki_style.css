@@ -97,11 +97,10 @@ section{
   height: 75vh;
 }
 
-.child {
+button{
   display: flex;
   width: 150px;
   height: 90px;
-  /* permet la création des bordures arrondi */
   border-radius: 20px;
   align-items: center;
   justify-content: center;
@@ -109,7 +108,6 @@ section{
   border-width: 5px;
   border-style: solid;
   border-color: red;
-  
 }
 
 .child2{

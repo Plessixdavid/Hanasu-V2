@@ -1,0 +1,23 @@
+{% extends 'mysite/_base.html' %}
+{% load static %}
+    {% block title %}Mon compte : {{user.username}}{% endblock title %}
+    {% block content %}
+    <section>
+        <div class="container">
+            <conteneur>
+                <h2>Utilisateur:</h2>
+                <p>Pseudo : {{user.username}}</p>
+                <p>Nom : {{user.first_name}}</p>
+                <p>Prénom : {{user.last_name}}</p>
+                <p>Email : {{user.email}}</p>
+                <p>Dernière connexion : {{user.last_login}}</p>
+                <p>Création du compte le : {{user.date_joined}}</p>
+
+                <p>Score du maneki neko : {{scores.current_score}}</p>
+                <p>Nombres de questions total depuis le {{user.date_joined}} : {{scores.total_questions}}</p>
+                
+            </conteneur>
+        </div>
+        
+    </section>
+    {% endblock content %}

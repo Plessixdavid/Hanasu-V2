@@ -1,4 +1,5 @@
 from django.db import models
+from authentication.models import User
 
 
 # Create your models here.
@@ -31,13 +32,21 @@ class Documentary(models.Model):
 
     def __str__(self):
         return f"{self.description}"
+
 class Maneki(models.Model):
 
-    score_hiragana = models.IntegerField(null=True, blank=True)
-    score_katakana = models.IntegerField(null=True, blank=True)
     ideogramm = models.ForeignKey(Ideogramm, null=True, on_delete=models.SET_NULL)
     description = models.ForeignKey(Documentary, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f"{self.score_hiragana}-{self.score_katakana}-{self.ideogramm}"
-    
+        return f"{self.score}-{self.ideogramm}"
+
+class Score(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)   
+    maneki = models.ForeignKey(Maneki, null=True, on_delete=models.SET_NULL)
+    current_score = models.IntegerField(null=True, blank=True)
+    total_questions = models.IntegerField(null=True, blank=True)
+    scores_max = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.current_score}-{self.scores_max}"
