@@ -11,17 +11,23 @@ from . import forms
 def blog(request):
     blogs = models.Blog.objects.all()
     css = "lexique/blog.css"
-    return render(request, "lexique/blog.html", context={'blogs': blogs, "css":css})
+    css2 = "mysite/menu.css"
+    
+    return render(request, "lexique/blog.html", context={'blogs': blogs, "css":css, "css2":css2})
 
 @login_required
 def lexique(request):
     photos = models.Lexique.objects.all()
     css = "lexique/lexique_style.css"
-    return render(request, "lexique/lexique.html", context={'photos': photos, "css":css})
+    css2 = "mysite/menu.css"
+    
+    return render(request, "lexique/lexique.html", context={'photos': photos, "css":css, "css2":css2})
 
 @login_required
 def lexique_upload(request):
     form = forms.LexiqueForm()
+    css = "lexique/lexique_style.css"
+    css2 = "mysite/menu.css"
     if request.method == 'POST':
         # nous avons besoin du formulaire contenu dans Photo.
         form = forms.LexiqueForm(request.POST, request.FILES)
@@ -32,13 +38,15 @@ def lexique_upload(request):
             # now we can save
             lexique.save()
             return redirect('home')
-    css = "lexique/lexique_style.css"
-    return render(request, 'lexique/lexique_upload.html', context={'form': form, 'css':css})
+
+    return render(request, 'lexique/lexique_upload.html', context={'form': form, 'css':css, 'css2':css2})
 
 @login_required
 def lexique_update(request, id):
     lexique = models.Lexique.objects.get(id=id)
     form = forms.LexiqueForm(instance=lexique)
+    css = "lexique/lexique_style.css"
+    css2 = "mysite/menu.css"
     if form.is_valid():
             # mettre à jour le mot existant dans la base de données
         form.save()
@@ -46,16 +54,19 @@ def lexique_update(request, id):
         return redirect('hanasu_lexique')
     else:
         form = forms.LexiqueForm(instance=lexique)  # on pré-remplir le formulaire avec un mot existant
-    css = "lexique/lexique_style.css"
-    return render(request,'lexique/lexique_update.html',{'form': form, 'css':css})
+
+    return render(request,'lexique/lexique_update.html',{'form': form, 'css':css, 'css2':css2})
 
 @login_required
 def lexique_delete(request, id):
     lexique = models.Lexique.objects.get(id=id)
+    css = "lexique/lexique_style.css"
+    css2 = "mysite/menu.css"
+
     if request.method == 'POST':
         # supprimer le groupe de la base de données
         lexique.delete()
         # rediriger vers la liste des groupes
         return redirect('lexique')
-    css = "lexique/lexique_style.css"
-    return render(request,'lexique/lexique_delete.html',{'lexique': lexique, 'css': css})
+
+    return render(request,'lexique/lexique_delete.html',{'lexique': lexique, 'css': css, 'css2': css2})

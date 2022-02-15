@@ -1,0 +1,79 @@
+
+nav 
+{
+  /* créer un menu prenant la largeur de l'ecran */
+    width: 100%;
+    
+    background: rgba(72, 67, 92, 0.8);
+    }
+ 
+nav .main_pages 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ 
+nav .main_pages a 
+{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+ 
+nav a:hover 
+{
+    background: rgb(90, 87, 102)
+}
+
+label, #toggle
+{
+    display: none;
+}
+
+
+label{
+
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 18px;
+  width: 100%;
+}
+
+@media all and (max-width: 991px)
+{
+
+  nav .main_pages 
+  {
+    display: none;
+    flex-direction: column;
+    background: #48435C;
+    height: 220px;
+  }
+ 
+  nav .main_pages a {
+    width: 50%;
+  }
+ 
+  label 
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+    cursor: pointer;
+    font-size: small;
+  }
+ 
+  #toggle:checked + .main_pages {
+    display: flex;
+      
+  }
+}

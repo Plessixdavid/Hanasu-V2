@@ -6,7 +6,7 @@
   
 body { 
   font-family: "Arial Black", Arial, Verdana, sans-serif;
-  background: url("img/acceuil.jpg") no-repeat center center fixed; 
+  background: url("img/exemple_maneki.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,42 +15,6 @@ body {
   height: 100vh;
 }
 
-nav 
-{
-  /* créer un menu prenant la largeur de l'ecran */
-    width: 100%;
-    
-    background: rgba(72, 67, 92, 0.4);
-    }
- 
-nav .main_pages 
-{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
- 
-nav .main_pages a 
-{
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    color: white;
-}
- 
-nav a:hover 
-{
-    background: rgb(90, 87, 102)
-}
-
-.label2 , #toggle
-{
-    display: none;
-}
 
 .checking{
   /* rend responsive l'affichage */
@@ -78,7 +42,6 @@ section{
   /* centre l'element */
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 .container {
   /* permet un affichage responsive */
@@ -94,9 +57,31 @@ section{
   /* créer une marge pour la grille */
   gap: 50px;
   font-size: 30px;
-  height: 75vh;
+  height: 40vh;
+  margin-top: 263px;
+  padding-left: 18px;
 }
-
+.choice{
+  height:10vh;
+  width:35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.check{
+  display: flex;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
 button{
   display: flex;
   width: 150px;
@@ -105,23 +90,24 @@ button{
   align-items: center;
   justify-content: center;
   background-color: aliceblue;
-  border-width: 5px;
+  border-width: 2px;
   border-style: solid;
-  border-color: red;
+  border-color: black;
+  font-size: larger;
 }
 
 .child2{
   display: flex;
   align-items: center;
   justify-content: center;
-  border-width: 5px;
+  border-width: 2px;
   border-style: solid;
-  border-color: red;
+  border-color: black;
   border-radius: 150px;
   background-color: aliceblue;
 }
 
-.img2{
+.img{
     /* contraint un taille maximal par rapport à la taille du container */
     width: 150px;
     max-height: 150px;
@@ -139,60 +125,51 @@ p{
   color: white;
   border-radius: 45px;
   padding: 10px;
+  border-style: solid;
+  border-color: red;
 }
-label, #toggle
-{
-  display: none;
-}
+
 @media all and (max-width: 991px)
 {
 
   .container 
   {
       gap: 25px;
+      margin-top: 170px;
   }
-
-  img
+  .choice{
+    
+    width: 50vw;
+  }
+  .img
   {
     /* contraint un taille maximal par rapport à la taille du container */
-    width: 150px;
-    max-height: 75px;
-    border-radius: 20px;
-  }
-
-  nav .main_pages 
-  {
-    display: none;
-    flex-direction: column;
-    background: #48435C;
-    height: 220px;
-  }
- 
-  nav .main_pages a {
-    width: 50%;
+    width: 130px;
+    max-height: 130px;
   }
  
   label 
   {
-    width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    font-size: 40px;
     color: white;
     cursor: pointer;
     font-size: small;
   }
  
-  #toggle:checked + .main_pages {
-    display: flex;
-      
-  }
-
-  p{
+  h3{
     font-size:small;
   }
+  p{
+    font-size:12px;
+  }
 
-
+  button{
+    width: 75px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: medium;
+  }
 }
