@@ -50,3 +50,13 @@ class Score(models.Model):
 
     def __str__(self):
         return f"{self.current_score}-{self.scores_max}"
+
+class Trophy(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    scores_min = models.IntegerField(null=True, blank=True)
+    scores_max = models.IntegerField(null=True, blank=True)
+    Img_link = models.CharField(max_length=100, null=True)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name}-{self.scores_min}-{self.scores_max}-{self.Img_link}"   

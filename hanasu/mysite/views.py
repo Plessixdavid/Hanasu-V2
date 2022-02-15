@@ -22,8 +22,10 @@ def hanasuregister(request):
 def user_page(request):
     score = Score.objects.get(user_id=request.user.id)
     css = "mysite/user_page.css"
+    css2 = "mysite/menu.css"
     context = {
         "css": css,
+        "css2": css2,
         "scores" : score,
     }
 
@@ -32,8 +34,8 @@ def user_page(request):
 
 @login_required
 def hanasuhome(request):
-    css = "mysite/home_style.css";
-    css2 = "mysite/menu.css";
+    css = "mysite/home_style.css"
+    css2 = "mysite/menu.css"
 
     context = {
         "css": css,
