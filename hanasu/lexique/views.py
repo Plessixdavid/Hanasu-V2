@@ -1,29 +1,27 @@
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import redirect, render
-
-from mysite.models import Score
 from lexique.models import *
+
 
 from . import forms
 
 
 # Create your views here.
 def blog(request):
-    blogs = models.Blog.objects.all()
+    blogs = Blog.objects.all()
     css = "lexique/blog.css"
     css2 = "mysite/menu.css"
     
-    return render(request, "lexique/blog.html", context={'blogs': blogs, "css":css, "css2":css2})
+    return render(request, "lexique/blog.html", context={"blogs":blogs, "css":css, "css2":css2})
 
-@login_required
+
 def lexique(request):
-    photos = models.Lexique.objects.all()
+    photos = Lexique.objects.all()
     css = "lexique/lexique_style.css"
     css2 = "mysite/menu.css"
     
-    return render(request, "lexique/lexique.html", context={'photos': photos, "css":css, "css2":css2})
+    return render(request, "lexique/lexique.html", context={ "photos":photos, "css":css, "css2":css2})
 
 @login_required
 def lexique_upload(request):
@@ -72,16 +70,3 @@ def lexique_delete(request, id):
         return redirect('lexique')
 
     return render(request,'lexique/lexique_delete.html',{'lexique': lexique, 'css': css, 'css2': css2})
-
-@login_required
-def user_page(request):
-    score = Score.objects.get(user_id=request.user.id)
-    css = "mysite/user_page.css"
-    css2 = "mysite/menu.css"
-    context = {
-        "css": css,
-        "css2": css2,
-        "scores" : score,
-    }
-
-    return render(request, "lexique/user_page.html", context)

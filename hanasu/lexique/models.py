@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.db import models
+from authentication.models import User
+
 
 # création de la table bdd qui contient une photo, une legende,une description une foreignkey vers le user.
 class Lexique(models.Model):
@@ -7,7 +9,7 @@ class Lexique(models.Model):
     romanji = models.CharField(max_length=128, blank=True)
     traduction = models.CharField(max_length=128, blank=True)
     description = models.TextField(max_length=300, blank=True)
-    uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE) 
     date_created = models.DateTimeField(auto_now_add=True)
  
  

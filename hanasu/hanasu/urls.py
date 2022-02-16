@@ -31,7 +31,7 @@ urlpatterns = [
     path('hanasu_register', authentication.views.signup_page, name='signup'),
     path('hanasu_home', views.hanasuhome, name ='home'),
     path('hanasu_maneki_neko', views.hanasugame, name ='maneki_neko'),
-    path('hanasu_user', lexique.views.user_page, name='user_page'),
+    path('hanasu_user', views.user_page, name='user_page'),
     # chemin url de la page connection.
     path('hanasu_login', authentication.views.login_page, name ='login'),
     path('logout', authentication.views.logout_user, name ='logout'),
