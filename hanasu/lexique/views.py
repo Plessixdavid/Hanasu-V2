@@ -2,12 +2,14 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import redirect, render
-from . import models
+
+from mysite.models import Score
+from lexique.models import *
+
 from . import forms
 
 
 # Create your views here.
-@login_required
 def blog(request):
     blogs = models.Blog.objects.all()
     css = "lexique/blog.css"
@@ -70,3 +72,16 @@ def lexique_delete(request, id):
         return redirect('lexique')
 
     return render(request,'lexique/lexique_delete.html',{'lexique': lexique, 'css': css, 'css2': css2})
+
+@login_required
+def user_page(request):
+    score = Score.objects.get(user_id=request.user.id)
+    css = "mysite/user_page.css"
+    css2 = "mysite/menu.css"
+    context = {
+        "css": css,
+        "css2": css2,
+        "scores" : score,
+    }
+
+    return render(request, "lexique/user_page.html", context)

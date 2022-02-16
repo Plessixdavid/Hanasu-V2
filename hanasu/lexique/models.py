@@ -13,3 +13,16 @@ class Lexique(models.Model):
  
 class Blog(models.Model):
     
+    image = models.ImageField(null=True, blank=True)
+    title = models.CharField(max_length=128)
+    content = models.CharField(max_length=5000)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True ,on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    starred = models.BooleanField(default=False)
+
+
+
+
+
+
+    

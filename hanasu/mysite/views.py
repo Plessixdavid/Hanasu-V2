@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
-from mysite.models import Ideogramm, Ideotype, Documentary, Maneki, Score
-from authentication import models
+from .models import Ideogramm, Ideotype, Documentary, Maneki, Score
+from authentication.models import User
+
 import random
-from . import models
+
 
 # Create your views here.
 
@@ -29,7 +30,8 @@ def user_page(request):
         "scores" : score,
     }
 
-    return render(request, "mysite/user_page.html", context)
+    return render(request, "lexique/user_page.html", context)
+
 
 
 @login_required

@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'hanasu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'hanasu',
+        'NAME':'project1',
         'USER':'postgres',
         'PASSWORD':'biscotte61',
         'HOST':'127.0.0.1',
