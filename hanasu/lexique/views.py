@@ -8,6 +8,7 @@ from . import forms
 
 
 # Create your views here.
+# blogs permets de recuperer tous les objets contenue dans la table Blog
 def blog(request):
     blogs = Blog.objects.all()
     css = "lexique/blog.css"
@@ -15,7 +16,7 @@ def blog(request):
     
     return render(request, "lexique/blog.html", context={"blogs":blogs, "css":css, "css2":css2})
 
-
+# photos permets de recuperer tous les objets contenue dans la table Photos
 def lexique(request):
     photos = Lexique.objects.all()
     css = "lexique/lexique_style.css"
