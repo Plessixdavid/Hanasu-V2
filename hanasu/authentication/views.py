@@ -2,6 +2,7 @@
 from django.contrib.auth import login, logout, authenticate  # import des fonctions login et authenticate
 from django.shortcuts import render, redirect
 from django.conf import settings
+from mysite.models import Score
 from . import forms
 
 
@@ -38,6 +39,7 @@ def signup_page(request):
         #condition si le formulaire est valide, on sauve le formulaire et on le login
         if form.is_valid():
             user = form.save()
+            Score.objects.create(user=user)
             # auto-login user
             login(request, user)
             return redirect('home')

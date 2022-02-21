@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import redirect, render
-from lexique.models import *
+from lexique.models import Lexique, Blog
 
 
-from . import forms
+
+from lexique import forms
 
 
 # Create your views here.
@@ -18,11 +19,12 @@ def blog(request):
 
 # photos permets de recuperer tous les objets contenue dans la table Photos
 def lexique(request):
-    photos = Lexique.objects.all()
+    lexiques = Lexique.objects.all()
     css = "lexique/lexique_style.css"
     css2 = "mysite/menu.css"
+
     
-    return render(request, "lexique/lexique.html", context={ "photos":photos, "css":css, "css2":css2})
+    return render(request, "lexique/lexique.html", context={ "photos":lexiques, "css":css, "css2":css2})
 
 @login_required
 def lexique_upload(request):
@@ -37,14 +39,14 @@ def lexique_upload(request):
             # set the uploader to the user before saving the model
             photo.uploader = request.user
             # now we can save
-            lexique.save()
+            form.save()
             return redirect('home')
 
     return render(request, 'lexique/lexique_upload.html', context={'form': form, 'css':css, 'css2':css2})
 
 @login_required
 def lexique_update(request, id):
-    lexique = models.Lexique.objects.get(id=id)
+    lexique = Lexique.objects.get(id=id)
     form = forms.LexiqueForm(instance=lexique)
     css = "lexique/lexique_style.css"
     css2 = "mysite/menu.css"
@@ -60,7 +62,7 @@ def lexique_update(request, id):
 
 @login_required
 def lexique_delete(request, id):
-    lexique = models.Lexique.objects.get(id=id)
+    lexique = Lexique.objects.get(id=id)
     css = "lexique/lexique_style.css"
     css2 = "mysite/menu.css"
 

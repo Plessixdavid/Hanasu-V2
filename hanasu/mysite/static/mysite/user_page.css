@@ -25,8 +25,6 @@ footer{
 }
 section{
   display: flex;
-  /* donne une taille specifique au container */
-  height: 90vh;
   /* centre l'element */
   justify-content: center;
   align-items: center;
@@ -63,12 +61,26 @@ label{
   border-radius: 45px;
   /* donne une marge interne de 30px */
   padding:30px;
+  max-width: 50vw;
+  margin: 25px;
+  border-right: 3px solid black;
   
 }
+
 p{
   margin: 10px;
 }
-
+h2{
+  display: flex;
+}
+img{
+  /* contraint un taille maximal par rapport à la taille du container */
+  max-width: 240px;
+  max-height: 275px;
+  
+  padding: 30px;
+  border-radius: 45px;
+}
 @media(max-width: 991px)
 {
   label 
@@ -83,5 +95,9 @@ p{
     cursor: pointer;
     font-size: small;
   }
-
+  
+  p{
+    margin: 0px;
+    text-align: center;
+  }
 }

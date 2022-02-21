@@ -44,10 +44,19 @@ class Maneki(models.Model):
 
 class Score(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)   
-    maneki = models.ForeignKey(Maneki, null=True, on_delete=models.SET_NULL)
-    current_score = models.IntegerField(null=True, blank=True)
-    total_questions = models.IntegerField(null=True, blank=True)
-    scores_max = models.IntegerField(null=True, blank=True)
+    maneki = models.ForeignKey(Maneki, null=True, blank=True, on_delete=models.SET_NULL)
+    current_score = models.IntegerField(null=True, blank=True, default=0)
+    total_questions = models.IntegerField(null=True, blank=True, default=0)
+    scores_max = models.IntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
-        return f"{self.current_score}-{self.scores_max}"
+        return f"{self.current_score}-{self.scores_max}-{self.user}"
+
+class Trophy(models.Model):
+    user_trophy = models.ManyToManyField(User, blank=True)
+    trophy_name = models.CharField(max_length=255,null=True , blank=True)
+    trophy_score = models.IntegerField(null=True, blank=True, default=0)
+    link = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return f"{self.trophy_name}-{self.trophy_score}-{self.link}"

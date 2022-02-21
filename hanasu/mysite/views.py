@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Ideogramm, Ideotype, Documentary, Maneki, Score
+from .models import Ideogramm, Ideotype, Documentary, Maneki, Score, Trophy
 from authentication.models import User
+
 
 import random
 
@@ -21,13 +22,29 @@ def hanasuregister(request):
 
 @login_required
 def user_page(request):
+    all_trophy = Trophy.objects.all()
     score = Score.objects.get(user_id=request.user.id)
     css = "mysite/user_page.css"
     css2 = "mysite/menu.css"
+
+    for trophy in all_trophy:
+        if score.scores_max >= trophy.trophy_score:
+            # i want to check if the trophy is already in the user_trophy m2m field
+            if trophy.user_trophy.filter(id=request.user.id).exists():
+                print("already exists")
+            else:
+                trophy.user_trophy.add(request.user)
+                print("does not exist")
+
+    trophy_for_the_current_user = Trophy.objects.filter(user_trophy = request.user.id)
+
+    print(trophy_for_the_current_user)
     context = {
         "css": css,
         "css2": css2,
         "scores" : score,
+        "user_trophy" : trophy_for_the_current_user
+        
     }
 
     return render(request, "lexique/user_page.html", context)
@@ -83,6 +100,7 @@ def hanasugame(request):
         "hiragana": hiragana,
         "katakana": katakana
     }
+
 
     if request.method == "POST":
         # ID de la réponse qui vient d'etre cliqué
