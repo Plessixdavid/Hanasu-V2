@@ -2,21 +2,30 @@
 {% load static %}
 {% block title %}Maneki Neko Game{% endblock title %}
 {% block content %}
-<section >
-    <form class ="choice" method="get">
-        <h3>Hiragana</h3>
-        <input type = "checkbox" name="hiragana" {% if hiragana == "on" %} checked {% endif %}>
-        <button class = "check" type="submit">Valider</button>
+
+<section>
+    {% comment %} choix de la methode get car les elements demandé ne sont pas semsible et
+    donc ne nécéssite pas l'envoie d'un token {% endcomment %}
+    <form class="choice" method="get">
+
+        <div>
+            <span>Score : {{scores.current_score}} / {{scores.total_questions}}</span>
+            <h1>00:00</h1>
+        </div>
+        <div>
+            
+            <h3>Hiragana</h3>
+            <input type="checkbox" name="hiragana" {% if hiragana == "on" %} checked {% endif %}>
+            <h3>Katakana</h3>
+            <input type="checkbox" name="katakana" {% if katakana == "on" %} checked {% endif %}>
+            <button class="check" type="submit">Valider</button>
+        </div>
     </form>
-    <p>Score : {{scores.current_score}} / {{scores.total_questions}}</p>
-    <form class ="choice" method="get">
-        <h3>Katakana</h3>
-        <input type ="checkbox" name="katakana" {% if katakana == "on" %} checked {% endif %}>
-        <button class = "check" type="submit">Valider</button>
-    </form>
+
 </section>
-<div class="container">
-    <div class="child">
+<img id="image" src="{% static 'mysite/img/cry.png' %}" alt="loose" />
+<span class="container">
+    <span class="child">
         <form method="post">
             {% csrf_token %}
             <input type="hidden" name="current" value="{{ideogramms.0.id}}">
@@ -24,13 +33,13 @@
 
             <button type="submit">{{ideogramms.0.romanji }}</button>
         </form>
-    </div>
+    </span>
 
-    <div class="child2">
+    <span class="child2">
         <img class="img" src="{{correct_ideogramm.Img_link}}" alt="Maneki Neko Game">
-    </div>
+    </span>
 
-    <div class="child">
+    <span class="child">
         <form method="post">
             {% csrf_token %}
             <input type="hidden" name="current" value="{{ideogramms.1.id}}">
@@ -38,11 +47,13 @@
 
             <button type="submit">{{ideogramms.1.romanji }}</button>
         </form>
-    </div>
-</div>
+    </span>
+</span>
 
 <section>
+    
     <p>{{random_documentary.description}}</p>
+    
 </section>
 
 {% endblock content %}

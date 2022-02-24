@@ -1,31 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static css %}">
     <link rel="stylesheet" href="{% static css2 %}">
+    {% comment %} defer permet de charger le script une fois que le body est lui-même charger. {% endcomment %}
+    <script src="{% static 'mysite/countdown.js' %}"defer></script>
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body><header>
-    <nav>
-        <label for="toggle">☰</label>
-        <input type="checkbox" id="toggle">
-        <div class="main_pages">
-            <a href="{% url 'home' %}">Accueil</a>
-            <a href="{% url 'maneki_neko' %}">Maneki Neko</a>
-            <a href="{% url 'lexique' %}">Lexique</a>
-            <a href="{% url 'blog' %}">Blog</a>
-            <a href="#">Cours de japonais</a>
-            <a href="{% url 'user_page' %}">Mon compte</a>
-            <a href="{% url 'logout' %}">{{user.username}} / se déconnecter</a>
 
-        </div>
-    </nav>
-</header>
+<body>
+    <header>
+        <nav>
+            <label for="toggle">☰</label>
+            <input type="checkbox" id="toggle">
+            <span class="main_pages">
+                <a href="{% url 'home' %}">Accueil</a>
+                <a href="{% url 'maneki_neko' %}">Maneki Neko</a>
+                <a href="{% url 'lexique' %}">Lexique</a>
+                <a href="{% url 'blog' %}">Blog</a>
+                <a href="#">Cours de japonais</a>
+                <a href="{% url 'user_page' %}">Mon compte</a>
+                <a href="{% url 'logout' %}">{{user.username}} / se déconnecter</a>
+
+            </span>
+        </nav>
+    </header>
     {% block content %}{% endblock content %}
-   
+
 </body>
+
 </html>

@@ -16,14 +16,6 @@ body {
 }
 
 
-.checking{
-  /* rend responsive l'affichage */
-  display: flex;
-
-
-  color: #000000;
-
-}
 label{
   display: flex;
   align-items: center;
@@ -34,7 +26,6 @@ label{
 }
 input[type="checkbox"]{
   width: auto;
-  margin: 20px;
 }
 
 section{
@@ -58,30 +49,10 @@ section{
   gap: 50px;
   font-size: 30px;
   height: 40vh;
-  margin-top: 263px;
+  margin-top: 345px;
   padding-left: 18px;
 }
-.choice{
-  height:10vh;
-  width:35vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.check{
-  display: flex;
-  width: 150px;
-  height: 30px;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-  background-color: aliceblue;
-  border-width: 2px;
-  border-style: solid;
-  border-color: red;
-}
+
 button{
   display: flex;
   width: 150px;
@@ -94,7 +65,38 @@ button{
   border-style: solid;
   border-color: black;
   font-size: larger;
+  z-index: 100;
 }
+
+.checking{
+  /* rend responsive l'affichage */
+  display: flex;
+  color: #000000;
+}
+
+.choice{
+  width : 50%;
+  height:10vh;
+  width:100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25%;
+}
+.check{
+  display: flex;
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  border-width: 2px;
+  border-style: solid;
+}
+
 
 .child2{
   display: flex;
@@ -117,7 +119,12 @@ button{
 a{
   text-align: center;
 }
-
+div{
+  text-align: center;
+  font-size: medium;
+  padding: 10px;
+  width: 25vw;
+}
 p{
   text-align: center;
   font-size: medium;
@@ -129,17 +136,45 @@ p{
   border-color: red;
 }
 
+#image {
+  /* cache l'image */
+  display: none;
+  
+  /* mets l'image au dessus des autres */
+  z-index: 99;
+  /* definie une position */
+  position: absolute ;
+  top: 72%;
+  left: 50%;
+  /* transforme son point d'encrage  */
+  transform: translate(-50%, -50%);
+  
+  max-height: 250px;
+}
+
+
 @media all and (max-width: 991px)
 {
-
+  #image{
+    top: 69%;
+    left: 52%;
+    max-height: 220px;
+  }
   .container 
   {
       gap: 25px;
-      margin-top: 170px;
+      margin-top: 295px;
   }
   .choice{
     
     width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    flex-wrap: none;
+    gap: 0;
   }
   .img
   {
@@ -162,6 +197,7 @@ p{
   h3{
     font-size:small;
   }
+
   p{
     font-size:12px;
   }

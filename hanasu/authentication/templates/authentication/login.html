@@ -14,8 +14,11 @@
                 {% csrf_token %}
                 <button type="submit">Se connecter</button>
             </form>
-            {% comment %} ici un lien vers le formulaire d'inscription nommé signup {% endcomment %}
-            <p>Pas encore membre ? <a href="{% url 'signup' %}"> Inscrivez-vous maintenant !</a></p>
+            
+            <div>{% comment %} ici un lien vers le formulaire d'inscription nommé signup {% endcomment %}
+                <p>Pas encore membre ?</p>
+                <a href="{% url 'signup' %}"> Inscrivez-vous maintenant !</a>
+            </div>
         </div>
     </section>
     {% endblock content %}

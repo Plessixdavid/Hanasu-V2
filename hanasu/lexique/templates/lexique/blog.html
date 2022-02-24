@@ -1,17 +1,26 @@
 {% extends 'lexique/_base.html' %}
 {% block content %}
-
-<section>
-    {% for blog in blogs %}
-        <div class="container">
-            <img src="{{ blog.image.url }}">
-            <div>
-                <h2>{{ blog.title }}</h2>
-                <p>{{ blog.content }}</p>
-                <p>écrit par : {{ blog.author }}</p>
-
-            </div>
-        </div>
-    {% endfor %}
-</section>
+  <section>
+    <div>
+      <h4><strong>Les posts recents</strong></h4>
+    <!-- first post -->
+      <div>
+      {% for post in object_list %}  
+      <div>
+        <img src="{{ post.image.url }}" />
+        <a href="#!">
+          <div></div>
+        </a>
+      </div>
+      <div>
+        <h5>{{ post.title }} </h5>
+        <small>{{ post.date_added }}</small>
+        <p>
+          {{ post.intro }} 
+        </p>
+        <a href= "{% url 'detailView' post.id %}">lire plus</a>
+      </div> 
+      {% endfor %}  
+    </div>
+  </section>
 {% endblock content %}

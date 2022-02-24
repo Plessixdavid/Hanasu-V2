@@ -14,6 +14,17 @@ body {
 
   min-height: 100vh;
 }
+
+div{
+  
+  width: 100%;
+  height: 5%;
+  }
+
+h1{
+  text-align: center;
+}
+
 h2{
   width: 100vw;
 	background-color: rgba(72, 67, 92, 0.4);
@@ -22,6 +33,11 @@ h2{
   height: 5%;
   border-bottom:1px solid black;
 }
+
+h3{
+  text-align: center;
+}
+
 a{
   color: white;
   text-align: center;
@@ -38,14 +54,22 @@ footer{
 section{
   display: flex;
   min-height: 90%;
-  border-bottom:1px solid black;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 25px;
   max-width: 75%;
   text-align: center;
   margin: auto;
+  margin-top: 25px;
+  flex-direction: row;
+  background-color: rgba(72, 67, 92, 0.8);
+  /* centre l'element */
+  justify-content: center;
+  align-items: center;
+  /* permet un rangement en mode grille */
+  flex-wrap: wrap;
+  /* créer une marge pour la grille */
+  gap: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
 }
 
 form{
@@ -74,63 +98,13 @@ p > label{
   gap: 20px;
 }
 
-.child {
-  display: flex;
-  width: 300px;
-  height: 300px;
-  
-  /* créer un font transparent */
-  background: rgba(0,0,0,0.4);
-  /* permet la création des bordures arrondi */
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-}
 
 img{
-  /* contraint un taille maximal par rapport à la taille du container */
-  max-width: 500px;
-  max-height: 500px;
   padding: 30px;
   border-radius: 45px;
 }
 
-nav 
-{
-  /* créer un menu prenant la largeur de l'ecran */
-    width: 100%;
-    height: 10%;
-    background: rgba(72, 67, 92, 0.4);
-    }
- 
-nav .main_pages 
-{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
- 
-nav .main_pages a 
-{
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    color: white;
-}
 
-nav a:hover 
-{
-    background: rgb(90, 87, 102)
-}
-
-label, #toggle
-{
-    display: none;
-}
  
 @media(max-width: 991px)
 {

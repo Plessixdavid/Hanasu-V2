@@ -1,20 +1,23 @@
 {% extends 'mysite/_base_2.html' %}
 {% load static %}
-    {% block title %}Hanasu{% endblock title %}
-    {% block content %}
-    <section>
+{% block title %}Hanasu{% endblock title %}
+{% block content %}
+<section>
+    <div class="wrap">
+        <div class="bg"></div>
         <div class="container">
             <img src="{% static 'mysite/img/logo.png' %}">
             <a href="/hanasu_login" class="Login">Login</a>
             <a href="/hanasu_register" class="Inscription">Inscription</a>
         </div>
+    </div>
+</section>
+<footer>
+    <section>
+        <p>
+            Créer par David Plessix, Formation Dev Web et Web Mobile.
+            Projet N°3 soutenance 2022
+        </p>
     </section>
-    <footer>
-        <section>
-            <p>
-                Créer par David Plessix, Formation Dev Web et Web Mobile.
-                Projet N°3 soutenance 2022
-            </p>
-        </section>
-    </footer>
-    {% endblock content %}
+</footer>
+{% endblock content %}

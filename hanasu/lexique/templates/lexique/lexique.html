@@ -1,10 +1,31 @@
 {% extends 'lexique/_base.html' %}
 {% block content %}
 
-    <h2>Lexique<a href="{% url 'lexique_upload' %}"> Ajouter</a></h2>
-    
+<h2>Lexique<a href="{% url 'lexique_upload' %}"> Ajouter</a></h2>
+<h4>page: {{page.number}}</h4>
     <section>
-        {% for photo in photos %}
+    <div class="page-links">
+            {% if page.has_previous %}
+                <a href="{% url 'lexique' %}?page={{ page.previous_page_number }}">page précédente</a>
+            {% endif %}
+            {% for i in page_range %}
+                {% if i == page_obj.number %}
+                    
+                        <a href="?page={{i}}">{{i}}</a>
+                    
+                {% else%}
+                    <span class="page_num">
+                        <a href="?page={{i}}">{{i}}</a>
+                    </span>
+                {% endif %}
+            {% endfor %}
+                {% if page.has_next %}
+                    <a href="{% url 'lexique' %}?page={{ page.next_page_number }}">page suivante</a>
+                {% endif %}
+            </div>
+    </section>
+    <section class="center">
+        {% for photo in page.object_list %}
         <div class="container">
             <img src="{{ photo.image.url }}">
             <div>
@@ -14,11 +35,14 @@
                 <p>{{ photo.traduction }}</p>
                 <h3>description:</h3>
                 <p>{{photo.description }}</p>
+                <br>
+                <br>
                 <a href="{% url 'lexique_update' photo.id %}"> Modifier</a>
                 <a href="{% url 'lexique_delete' photo.id %}">/ Supprimer</a>
                 
             </div>
         </div>
         {% endfor %}
+        
     </section>
 {% endblock content %}

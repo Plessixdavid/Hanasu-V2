@@ -50,7 +50,6 @@ def user_page(request):
     return render(request, "lexique/user_page.html", context)
 
 
-
 @login_required
 def hanasuhome(request):
     css = "mysite/home_style.css"

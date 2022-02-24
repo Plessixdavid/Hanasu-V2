@@ -22,6 +22,7 @@ from mysite import views
 import authentication.views
 import lexique.views
 from django.conf.urls.static import static
+from lexique.views import List, detailView
 
 
 urlpatterns = [
@@ -41,7 +42,9 @@ urlpatterns = [
     path('hanasu_lexique_update/<int:id>/', lexique.views.lexique_update, name='lexique_update'),
     path('hanasu_lexique_delete/<int:id>/', lexique.views.lexique_delete, name='lexique_delete'),
     # chemin vers le blog post
-    path('hanasu_blog', lexique.views.blog, name = 'blog'),
+    # path('hanasu_blog', lexique.views.blog, name = 'blog'),
+    path('hanasu_blog', List.as_view(), name="blog"),
+    path('detail/<int:id>', detailView, name='detailView'),
 ]
 if settings.DEBUG:
     urlpatterns += static(

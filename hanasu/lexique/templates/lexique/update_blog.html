@@ -1,0 +1,43 @@
+{% extends 'lexique/_base.html'%}
+
+{% block content %}
+    <section>
+        <div>
+            <h1>{{ article.title }}</h1>
+        </div>
+        <div>
+        <img src="{{ article.image.url }}" />
+        <p> publié le: {{ article.date_created }} </p>
+        
+        <p>{{article.content}}</p>
+        </div>
+    <hr>
+</section>
+
+<section>
+    <div>
+    <h3>Commentaires</h3>
+    </div>
+        {% for comment in comments %}
+            <div>
+                <strong><p>posté par: {{ comment.name }}</p></strong>  {{ comment.date_added }}
+                <p>Commentaire: {{ comment.body }}</p> 
+        {% empty %}
+                <p>Pas de commentaire</p> 
+            </div>    
+        {% endfor %}    
+    </section> 
+
+    <section>         
+    <div>
+    <h3>Ajouter un nouveau commentaire</h3>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">commenter</button>
+    </form>
+
+</section>
+
+{% endblock %}
