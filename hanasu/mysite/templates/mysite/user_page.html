@@ -4,7 +4,7 @@
 {% block content %}
 <section>
     <div class="container">
-        <conteneur>
+        
             <h2>Utilisateur:</h2>
             <p>Pseudo : {{user.username}}</p>
             <p>Nom : {{user.first_name}}</p>
@@ -12,18 +12,27 @@
             <p>Email : {{user.email}}</p>
             <p>Dernière connexion : {{user.last_login}}</p>
             <p>Création du compte le : {{user.date_joined}}</p>
-
+        
+    </div>
+    
+</section>
+<section>
+    <div class="container">
+        
+            <h2>Scores:</h2>
             <p>Score du maneki neko : {{scores.current_score}}</p>
+            <p>Points Hiragana : {{scores.score_hiragana}}</p>
+            <p>points Katakana : {{scores.score_katakana}}</p>
             <p>Nombres de questions total depuis le {{user.date_joined}} : {{scores.total_questions}}</p>
             
-            
-        </conteneur>
+        
     </div>
     
 </section>
 <section>
     
     <div class="container">
+        <h2>Trophés:</h2>
         {% for trophy in user_trophy %}
         <p>Vous avez obtenu le trophé {{trophy.trophy_name}}, pour vos {{trophy.trophy_score}} points.</p>
         

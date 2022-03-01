@@ -43,6 +43,9 @@ label{
   
 }
 
+div{
+  border-radius: 20px;
+}
 .container {
   /* permet un affichage responsive */
   display: flex;

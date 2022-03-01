@@ -5,10 +5,55 @@
 
     <section>
         <div class="container">
-            <div class="child" id="child-1"><a href="{% url 'maneki_neko' %}" target="_blank"><img src="{% static "mysite/img/maneki.jpg"%}" alt="Maneki Neko Game"></a></div>
-            <div class="child" id="child-1"><a href="{% url 'lexique' %}" target="_blank"><img src="{% static "mysite/img/question.jpg"%}" alt="lexique"></a></div>
-            <div class="child" id="child-1"><a href="https://cours-de-japonais.com" target="_blank"><img src="{% static "mysite/img/sophie.png"%}" alt="cours de japonais"></a></div>
-            <div class="child" id="child-1"><a href="#" target="_blank"><img src="{% static "mysite/img/datura.jpg"%}" alt="Maneki Neko Game"></a></div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="child" id="child-1"><a href="{% url 'maneki_neko' %}" target="_blank"><img src="{% static "mysite/img/maneki.jpg"%}" alt="Maneki Neko Game"></a></div>
+                    </div>
+                    <div class="flip-card-back">
+                      <h2>Le Maneki Neko</h2>
+                      <p>Joue et apprends.</p>
+                      <p>retrouve les bon idéogrammes et deviens le champion des Hiragana et Katakana.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="child" id="child-1"><a href="{% url 'lexique' %}" target="_blank"><img src="{% static "mysite/img/question.jpg"%}" alt="lexique"></a></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Lexique</h2>
+                        <p>Crée ton propre lexique.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="child" id="child-1"><a href="https://cours-de-japonais.com" target="_blank"><img src="{% static "mysite/img/sophie.png"%}" alt="cours de japonais"></a></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Cours de japonais.com </h2>
+                        <p>Retrouve Sophie et sa methode d'apprentissage du Japonais</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="child" id="child-1"><a href="#" target="_blank"><img src="{% static "mysite/img/datura.jpg"%}" alt="Maneki Neko Game"></a></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>David Plessix</h2>
+                        <p>Develloppeur Web et Web Mobile</p>
+                        <p>Python, Javascript, Html et Css.</p>
+                        <p>Django et Base De Donnée PostgreSQL.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

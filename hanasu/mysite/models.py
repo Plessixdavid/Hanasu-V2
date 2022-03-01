@@ -46,6 +46,8 @@ class Score(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)   
     maneki = models.ForeignKey(Maneki, null=True, blank=True, on_delete=models.SET_NULL)
     current_score = models.IntegerField(null=True, blank=True, default=0)
+    score_hiragana = models.IntegerField(null=True,blank=True, default=0)
+    score_katakana = models.IntegerField(null=True,blank=True, default=0)
     total_questions = models.IntegerField(null=True, blank=True, default=0)
     scores_max = models.IntegerField(null=True, blank=True, default=0)
 

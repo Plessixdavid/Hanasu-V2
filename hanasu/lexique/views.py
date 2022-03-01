@@ -82,8 +82,6 @@ def lexique_delete(request, id):
 
     return render(request,'lexique/lexique_delete.html',{'lexique': lexique, 'css': css, 'css2': css2})
 
-
-
 class List(ListView):
     template_name = 'lexique/blog.html'
     queryset = Blog.objects.all()
@@ -96,8 +94,6 @@ class List(ListView):
         context['css2'] = "mysite/menu.css"
 
         return context
-
-
 
 def detailView(request, id):
     post = Blog.objects.get(id=id)
