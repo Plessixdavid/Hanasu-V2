@@ -6,7 +6,8 @@ from authentication.models import User
 
 
 import random
-remember = []
+
+
 
 
 # Create your views here.
@@ -66,9 +67,11 @@ def hanasuhome(request):
     return render(request, "mysite/home_page.html", context)
 
 
+
 @login_required
 def hanasugame(request):
     documentary = Documentary.objects.all()
+    
     # hiragana = "on" ou "off"
     hiragana = request.GET.get("hiragana", "off")
     # katakana = "on" ou "off"
@@ -90,8 +93,7 @@ def hanasugame(request):
     css2 = "mysite/menu.css"
     score = Score.objects.get(user_id=request.user.id)
     correct_ideogramm = random.choice(random_ideogramms)
-
-
+   
     context = {
         "scores" : score,
         "correct_ideogramm" : correct_ideogramm,
@@ -101,7 +103,8 @@ def hanasugame(request):
         "css2": css2,
         "hiragana": hiragana,
         "katakana": katakana,
-        "remember": remember
+        
+       
     }
 
     if request.method == "POST":
@@ -119,12 +122,12 @@ def hanasugame(request):
             score.total_questions += 1
             score.current_score += 1
             score.scores_max += 1
-            print(remember)
+            
             if hiragana == "on" and katakana == "off":
                 score.score_hiragana +=1
             elif katakana == "on" and hiragana == "off":
                 score.score_katakana +=1
-            else:
+            elif katakana == "on" and hiragana == "on":
                 score.score_katakana +=1
                 score.score_hiragana +=1
             score.save()
@@ -137,6 +140,6 @@ def hanasugame(request):
         # permet de rajouter quelque chose dans le context .
             
             context['scores'] = score
-        remember.append(correct_ideogramm.romanji)
+        
             
     return render(request, "mysite/maneki.html",context )

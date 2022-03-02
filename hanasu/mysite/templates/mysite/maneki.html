@@ -15,9 +15,9 @@
         <div>
             
             <h3>Hiragana {{scores.score_hiragana}} points</h3>
-            <input type="checkbox" name="hiragana" {% if hiragana == "on" %} checked {% endif %}>
+            <input type="checkbox" name="hiragana" {% if hiragana == "on" %} checked  {% endif %}>
             <h3>Katakana {{scores.score_katakana}} points</h3>
-            <input type="checkbox" name="katakana" {% if katakana == "on" %} checked {% endif %}>
+            <input type="checkbox" name="katakana" {% if katakana == "on" %} checked  {% endif %}>
             <button class="check" type="submit">Valider</button>
         </div>
     </form>
@@ -50,11 +50,7 @@
         </form>
     </span>
 </span>
-<div>
-    {% for i in remember %}
-        <p>{{remember}}</p>
-    {% endfor %}
-</div>
+
 <section>
     
     <p>{{random_documentary.description}}</p>
