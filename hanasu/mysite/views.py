@@ -1,3 +1,4 @@
+import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -71,7 +72,6 @@ def hanasuhome(request):
 @login_required
 def hanasugame(request):
     documentary = Documentary.objects.all()
-    
     # hiragana = "on" ou "off"
     hiragana = request.GET.get("hiragana", "off")
     # katakana = "on" ou "off"
@@ -92,6 +92,7 @@ def hanasugame(request):
     css = "mysite/maneki_style.css"
     css2 = "mysite/menu.css"
     score = Score.objects.get(user_id=request.user.id)
+    now = datetime.datetime.now().replace(tzinfo=datetime.timezone.utc)
     correct_ideogramm = random.choice(random_ideogramms)
    
     context = {
@@ -113,8 +114,14 @@ def hanasugame(request):
         
         # L'ID de la bonne réponse
         correct = request.POST['correct']
-            
         
+        last_game = score.last_game
+        difference = now - last_game
+        if difference.days >= 1:
+            score.current_score = 0
+
+        score.last_game = datetime.datetime.now(datetime.timezone.utc)
+
         # si la reponse est la bonne: ajout du point dans les colonnes score 
         # et ajoute 1 dans le nombre de question posé.
         if correct == current:
@@ -122,7 +129,7 @@ def hanasugame(request):
             score.total_questions += 1
             score.current_score += 1
             score.scores_max += 1
-            
+
             if hiragana == "on" and katakana == "off":
                 score.score_hiragana +=1
             elif katakana == "on" and hiragana == "off":

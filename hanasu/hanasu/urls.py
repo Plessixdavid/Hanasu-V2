@@ -22,7 +22,8 @@ from mysite import views
 import authentication.views
 import lexique.views
 from django.conf.urls.static import static
-from lexique.views import List, detailView
+from lexique.blog_views import List, detailView
+
 
 
 urlpatterns = [

@@ -1,6 +1,6 @@
 from django import forms
 from .models import Comment
-from . import models
+from lexique import models
 
 class LexiqueForm(forms.ModelForm):
     class Meta:

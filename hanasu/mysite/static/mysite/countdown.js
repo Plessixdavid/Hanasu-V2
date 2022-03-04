@@ -14,7 +14,8 @@ const countDown = setInterval(() => {
     endCount(); 
     show();
     setTimeout(() => {
-      document.location.reload()
+      // change l'url mais en lui donnant la même que celle utilisé.
+      window.location = window.location.href
       }, 5000)
         
     
