@@ -4,27 +4,25 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Ideogramm, Ideotype, Documentary, Maneki, Score, Trophy
 from authentication.models import User
-
-
 import random
-
-
-
-
 # Create your views here.
 
 def index(request):
+
     css = "mysite/style.css"
+
     return render(request, "mysite/index.html", {"css":css})
 
 
 def hanasuregister(request):
     
     css = "mysite/inscrip_style.css"
+
     return render(request, "mysite/inscription.html", {"css":css})
 
 @login_required
 def user_page(request):
+
     all_trophy = Trophy.objects.all()
     score = Score.objects.get(user_id=request.user.id)
     css = "mysite/user_page.css"
@@ -41,8 +39,9 @@ def user_page(request):
 
     trophy_for_the_current_user = Trophy.objects.filter(user_trophy = request.user.id)
 
-    print(trophy_for_the_current_user)
+    
     context = {
+
         "css": css,
         "css2": css2,
         "scores" : score,
@@ -55,6 +54,7 @@ def user_page(request):
 
 @login_required
 def hanasuhome(request):
+
     css = "mysite/home_style.css"
     css2 = "mysite/menu.css"
     css3 = "mysite/flip.css"
@@ -109,18 +109,23 @@ def hanasugame(request):
     }
 
     if request.method == "POST":
-        # ID de la réponse qui vient d'etre cliqué
+        # ID de la réponse qui vient d'etre cliqué.
         current = request.POST['current']
         
-        # L'ID de la bonne réponse
+        # L'ID de la bonne réponse.
         correct = request.POST['correct']
         
-        last_game = score.last_game
-        difference = now - last_game
+        # Création de la variable contenant la date d'aujourd'hui avec 
+        # l'instruction utc pour le créneau horaire.
+        score.last_game = datetime.datetime.now(datetime.timezone.utc)
+        
+        # Création d'une variable pour connaitre la différence entre Last_game et maintenant.
+        difference = now - score.last_game
+
+        #  Condition si la difference est sup à 1 jour.
         if difference.days >= 1:
             score.current_score = 0
 
-        score.last_game = datetime.datetime.now(datetime.timezone.utc)
 
         # si la reponse est la bonne: ajout du point dans les colonnes score 
         # et ajoute 1 dans le nombre de question posé.
@@ -130,6 +135,7 @@ def hanasugame(request):
             score.current_score += 1
             score.scores_max += 1
 
+            # condition pour savoir que faire pour les boutons actif.
             if hiragana == "on" and katakana == "off":
                 score.score_hiragana +=1
             elif katakana == "on" and hiragana == "off":
@@ -148,5 +154,4 @@ def hanasugame(request):
             
             context['scores'] = score
         
-            
     return render(request, "mysite/maneki.html",context )
